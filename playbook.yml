@@ -9,6 +9,12 @@
   - name: "rhsm_password"
     prompt: "Enter RHN password"
     private: yes
+  - name: "ldap"
+    prompt: "Do you want configuration with LDAP? (if so type 'yes')"
+    private: no
+  - name: "ldap_bindPassword"
+    prompt: "Enter LDAP bind pass"
+    private: yes
   tasks:
   - name: initialize subscription manager
     include_tasks: rhel.yml
@@ -29,3 +35,9 @@
   - include_role:
       name: sonar
     when: sonar == "ui"
+
+  - name: enable ldap configuration
+    include: "ldap.yml"
+    when: 
+       -  ldap == "yes"
+       -  sonar == "ui"

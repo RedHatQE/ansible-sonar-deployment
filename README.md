@@ -11,6 +11,11 @@
    ansible-playbook -i inventory playbook.yml
 ```
 
+If you want to configure LDAP parameters in sonar conf file - Enter "yes"
+in the prompt "Do you want configuration with LDAP?". Then Enter the LDAP
+bind password. If you don't want ldap configuration - just press "Enter" in
+order to skip this prompt.
+
 # For Ansible-Tower
 
  -  Inventory
